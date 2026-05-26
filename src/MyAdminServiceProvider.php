@@ -49,8 +49,8 @@ class MyAdminServiceProvider extends ServiceProvider
             ], 'my-admin-assets');
         }
 
-        // 加载迁移文件
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        // 不使用 loadMigrationsFrom，迁移文件必须通过 vendor:publish 发布后才运行
+        // 这样可以确保用户控制迁移顺序（spatie/permission 的迁移必须先运行）
     }
 
     /**
