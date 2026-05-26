@@ -1,0 +1,22 @@
+# 依赖
+/frontend/node_modules/
+/vendor/
+
+# npm 库构建产物（发布时通过 CI 构建，不提交）
+/frontend/dist/
+
+# 注意：resources/dist/ 不忽略，预构建的 SPA 产物需要提交
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 环境文件
+.env
+.env.local
