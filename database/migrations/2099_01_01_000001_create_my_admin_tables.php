@@ -71,9 +71,11 @@ return new class extends Migration
         // 角色-菜单关联表
         if (!Schema::hasTable('role_has_menus')) {
             Schema::create('role_has_menus', function (Blueprint $table) {
-                $table->foreignId('role_id')->constrained()->cascadeOnDelete();
-                $table->foreignId('menu_id')->constrained()->cascadeOnDelete();
+                $table->unsignedBigInteger('role_id');
+                $table->unsignedBigInteger('menu_id');
                 $table->primary(['role_id', 'menu_id']);
+                $table->foreign('menu_id')->references('id')->on('menus')->cascadeOnDelete();
+                $table->foreign('role_id')->references('id')->on('roles')->cascadeOnDelete();
             });
         }
 
